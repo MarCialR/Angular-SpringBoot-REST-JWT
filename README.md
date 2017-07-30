@@ -1,3 +1,26 @@
+docker run --name some-postgres -e POSTGRES_PASSWORD=pass -d postgres
+
+docker run --rm --name some-postgres \
+  -v ${PWD}/src/main/resources/schema-postgresql.sql:/tmp/schema-postgresql.sql \
+  -v ${PWD}/src/main/resources/data-postgresql.sql:/tmp/data-postgresql.sql \
+  -e POSTGRES_PASSWORD=pass \
+  -d postgres
+
+docker exec -it some-postgres bash
+
+psql -f /tmp/schema-postgresql.sql -U postgres
+psql -f /tmp/data-postgresql.sql -U postgres
+
+
+psql -h 172.17.0.2 -U postgres 
+
+
+
+\dn     list schemas
+\c dbname  connect DB
+\dt      list tables
+
+
 [![Build Status](https://travis-ci.org/mrin9/Angular-SpringBoot-REST-JWT.svg?branch=master)](https://travis-ci.org/mrin9/Angular-SpringBoot-REST-JWT)
 
 ## Angular 2 Frontent with SpringBoot (Java) Backend
