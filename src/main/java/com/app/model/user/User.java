@@ -7,7 +7,7 @@ import lombok.*;
 import javax.validation.constraints.*;
 import java.util.EnumSet;
 
-@Entity
+@Entity(name = "users")
 public class User {
     @Id
     @Getter @Setter private String userId;

@@ -4,6 +4,7 @@ docker run --rm --name some-postgres \
   -v ${PWD}/src/main/resources/schema-postgresql.sql:/tmp/schema-postgresql.sql \
   -v ${PWD}/src/main/resources/data-postgresql.sql:/tmp/data-postgresql.sql \
   -e POSTGRES_PASSWORD=pass \
+  -e POSTGRES_DB=activitydb \
   -d postgres
 
 docker exec -it some-postgres bash
@@ -20,6 +21,7 @@ psql -h 172.17.0.2 -U postgres
 \c dbname  connect DB
 \dt      list tables
 
+Request URL:http://localhost:9119/api/orders?page=0&size=1000
 
 [![Build Status](https://travis-ci.org/mrin9/Angular-SpringBoot-REST-JWT.svg?branch=master)](https://travis-ci.org/mrin9/Angular-SpringBoot-REST-JWT)
 
